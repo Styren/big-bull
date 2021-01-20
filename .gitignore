@@ -1,5 +1,8 @@
 __pycache__
+.mypy_cache
 *.pyc
+
+dist
 
 *.swp
 *.swo
