@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "big-bull"
-version = "0.3.0"
+version = "0.3.1"
 description = "Web framework for writing asynchronous microservices"
 authors = ["Buster Styren <buster.styren@gmail.com>"]
 license = "MIT"

@@ -99,7 +99,7 @@ class Node:
         return f"{self.name}(edges={self.edges} func={self.func})"
 
 
-def dep_resolve(node, resolved, seen=[]):
+def dep_resolve(node, resolved, seen):
     seen.append(node)
     for edge in node.edges:
         if edge not in resolved:
@@ -134,7 +134,10 @@ async def run_init_tasks():
     if not len(nodes):
         return nodes
     logger.info("Resolve dependencies...")
-    dep_resolve(nodes[next(iter(nodes))], resolved)
+    seen = []
+    for node in nodes.values():
+        if node not in seen:
+            dep_resolve(node, resolved, seen)
     global injectables
     injectables = {}
     logger.info("Resolving provider arguments...")
